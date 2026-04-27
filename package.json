@@ -1,0 +1,14 @@
+{
+  "name": "yashwanth-red-team-portfolio",
+  "version": "2.0.0",
+  "description": "Cyberpunk red-team portfolio for Yashwanth Kumar S.",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "npx http-server . -p 3000 -o --cors",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
