@@ -1479,3 +1479,23 @@ meter::-webkit-meter-optimum-value {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── LOADER SAFETY NET ──────────────────────────────────────
+   If JS never fires, loader auto-fades after 6s.
+   Prevents the "stuck on boot screen" bug entirely.
+─────────────────────────────────────────────────────────── */
+@keyframes loader-timeout {
+  0%   { opacity: 1; visibility: visible; pointer-events: auto; }
+  90%  { opacity: 1; visibility: visible; pointer-events: auto; }
+  100% { opacity: 0; visibility: hidden;  pointer-events: none; }
+}
+.loader {
+  animation: loader-timeout 6s ease forwards;
+}
+/* JS adds is-hidden sooner; this is only the fallback */
+.loader.is-hidden {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
